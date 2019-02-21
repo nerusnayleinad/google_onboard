@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: green
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: onboard
+        version: green
+    spec:
+      containers:
+      - image: viejo/app:green-v2
+        name: green
+        ports:
+        - containerPort: 8000
+          name: http
